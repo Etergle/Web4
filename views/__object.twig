@@ -1,0 +1,25 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    <p>{{description}}</p>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+         
+          {% import "forms.html" as forms %}
+          {{ forms.btn('Картинка', '/art_objects/'~ id ~'?show=image', type == 'image','primary nav-link active') }}
+          </li>
+        <li class="nav-item ">
+      
+          {% import "forms.html" as forms %}
+          {{forms.btn('Описание', '/art_objects/'~ id ~'?show=info',type == 'text','primary nav-link active' ) }}
+          
+        </li>
+      </ul>
+    <ul class="list-group">
+    <li class="list-group-item">
+
+    {% block objectContent %}
+    <p>Выберите что-нибудь</p>
+    {% endblock %}
+{% endblock %}
